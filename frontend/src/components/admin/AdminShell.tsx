@@ -9,13 +9,13 @@ import ThemeToggle from "@/components/ThemeToggle";
 export default function AdminShell({
   pastorName,
   organizationName,
-  organizationLogoUrl,
+  profileImage,
   userId,
   children,
 }: {
   pastorName: string;
   organizationName: string;
-  organizationLogoUrl?: string | null;
+  profileImage?: string | null;
   userId?: string;
   children: React.ReactNode;
 }) {
@@ -43,7 +43,7 @@ export default function AdminShell({
           <AdminSidebar
             pastorName={pastorName}
             organizationName={organizationName}
-            organizationLogoUrl={organizationLogoUrl}
+            profileImage={profileImage}
             userId={userId}
           />
         </div>
@@ -69,7 +69,7 @@ export default function AdminShell({
               <AdminSidebar
                 pastorName={pastorName}
                 organizationName={organizationName}
-                organizationLogoUrl={organizationLogoUrl}
+                profileImage={profileImage}
                 userId={userId}
                 onNavigate={() => setDrawerOpen(false)}
               />

@@ -48,13 +48,13 @@ const NAV = [
 export default function AdminSidebar({
   pastorName,
   organizationName,
-  organizationLogoUrl,
+  profileImage,
   userId,
   onNavigate,
 }: {
   pastorName: string;
   organizationName: string;
-  organizationLogoUrl?: string | null;
+  profileImage?: string | null;
   userId?: string;
   onNavigate?: () => void;
 }) {
@@ -107,14 +107,14 @@ export default function AdminSidebar({
             {pastorName}
           </p>
           <div className="mt-1 flex min-w-0 items-center gap-2">
-            {organizationLogoUrl && (
-              <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded border border-parchment-300 bg-white dark:border-ink-700 dark:bg-ink-900">
+            {profileImage && (
+              <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-parchment-300 bg-white dark:border-ink-700 dark:bg-ink-900">
                 <Image
-                  src={organizationLogoUrl}
-                  alt={`${organizationName} logo`}
+                  src={profileImage}
+                  alt={`${pastorName} profile picture`}
                   fill
-                  sizes="28px"
-                  className="object-contain p-0.5"
+                  sizes="48px"
+                  className="object-cover"
                 />
               </span>
             )}

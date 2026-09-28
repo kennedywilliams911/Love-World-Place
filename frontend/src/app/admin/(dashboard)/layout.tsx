@@ -25,14 +25,14 @@ export default async function DashboardLayout({
     profileData?.profile?.pastorName?.trim() || session?.name || "Publisher";
   const organizationName =
     profileData?.profile?.churchName?.trim() || "Love World Place";
+  const profileImage = profileData?.profile?.profileImage;
   const userId = profileData?.profile?.userId || session?.userId;
-  const organizationLogoUrl = profileData?.profile?.organizationLogoUrl;
 
   return (
     <AdminShell
       pastorName={pastorName}
       organizationName={organizationName}
-      organizationLogoUrl={organizationLogoUrl}
+      profileImage={profileImage}
       userId={userId}
     >
       {children}
