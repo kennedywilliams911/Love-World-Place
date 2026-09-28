@@ -1943,6 +1943,10 @@
     max-width: 180px;
   }
 
+  .max-w-\[190px\] {
+    max-width: 190px;
+  }
+
   .max-w-lg {
     max-width: var(--container-lg);
   }
