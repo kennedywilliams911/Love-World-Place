@@ -27,7 +27,7 @@ const ALLOWED_AUDIO_TYPES = new Set([
   "audio/x-m4a",
   "audio/m4a",
 ]);
-const MAX_IMAGE_SIZE_BYTES = 8 * 1024 * 1024; // 8MB
+const MAX_IMAGE_SIZE_BYTES = 20 * 1024 * 1024; // 20MB
 const MAX_AUDIO_SIZE_BYTES = 250 * 1024 * 1024; // 250MB
 
 const imageUpload = multer({
@@ -148,7 +148,7 @@ router.use((err: any, _req: any, res: any, next: any) => {
   if (err instanceof multer.MulterError && err.code === "LIMIT_FILE_SIZE") {
     return res.status(400).json({
       error:
-        "That file is too large. Images must be under 8MB and audio must be under 250MB.",
+        "That file is too large. Images must be up to 20MB and audio must be under 250MB.",
     });
   }
   next(err);

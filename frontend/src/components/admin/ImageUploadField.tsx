@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 import { apiUrl } from "@/lib/api-client";
 
 const ALLOWED_TYPES = ["image/jpeg", "image/png", "image/webp", "image/avif"];
-const MAX_SIZE_BYTES = 8 * 1024 * 1024;
+const MAX_SIZE_BYTES = 20 * 1024 * 1024;
 const PROFILE_CROP_SIZE = 512;
 
 async function createCroppedProfileImage(
@@ -91,7 +91,7 @@ export default function ImageUploadField({
       return false;
     }
     if (file.size > MAX_SIZE_BYTES) {
-      toast.error("That image is too large. Please use a file under 8MB.");
+      toast.error("That image is too large. Please use a file up to 20MB.");
       return false;
     }
     return true;
@@ -254,7 +254,7 @@ export default function ImageUploadField({
                   or drag and drop
                 </p>
                 <p className="text-xs text-ink-400 dark:text-parchment-500">
-                  JPG, PNG, WebP up to 8MB
+                  JPG, PNG, WebP, AVIF up to 20MB
                 </p>
               </>
             )}
@@ -275,7 +275,7 @@ export default function ImageUploadField({
       </div>
 
       {cropSource && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-ink-950/70 p-4">
+        <div className="fixed inset-0 z-100 flex items-center justify-center bg-ink-950/70 p-4">
           <section
             role="dialog"
             aria-modal="true"

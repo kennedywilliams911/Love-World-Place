@@ -1365,7 +1365,7 @@ const ALLOWED_TYPES = [
     "image/webp",
     "image/avif"
 ];
-const MAX_SIZE_BYTES = 8 * 1024 * 1024;
+const MAX_SIZE_BYTES = 20 * 1024 * 1024;
 const PROFILE_CROP_SIZE = 512;
 async function createCroppedProfileImage(source, area) {
     const image = new window.Image();
@@ -1420,7 +1420,7 @@ function ImageUploadField({ value, onChange, folder, label = "Featured Image", a
                 return false;
             }
             if (file.size > MAX_SIZE_BYTES) {
-                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].error("That image is too large. Please use a file under 8MB.");
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].error("That image is too large. Please use a file up to 20MB.");
                 return false;
             }
             return true;
@@ -1652,7 +1652,7 @@ function ImageUploadField({ value, onChange, folder, label = "Featured Image", a
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     className: "text-xs text-ink-400 dark:text-parchment-500",
-                                    children: "JPG, PNG, WebP up to 8MB"
+                                    children: "JPG, PNG, WebP, AVIF up to 20MB"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/admin/ImageUploadField.tsx",
                                     lineNumber: 256,
@@ -1691,7 +1691,7 @@ function ImageUploadField({ value, onChange, folder, label = "Featured Image", a
                 columnNumber: 7
             }, this),
             cropSource && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "fixed inset-0 z-[100] flex items-center justify-center bg-ink-950/70 p-4",
+                className: "fixed inset-0 z-100 flex items-center justify-center bg-ink-950/70 p-4",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
                     role: "dialog",
                     "aria-modal": "true",
