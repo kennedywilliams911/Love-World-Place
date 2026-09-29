@@ -18,18 +18,6 @@ export default function CommentsSection({
   const [newComments, setNewComments] = useState<ArticleComment[]>(comments);
   const [form, setForm] = useState({ name: "", email: "", content: "" });
   const [loading, setLoading] = useState(false);
-  const isCommentsEnabled = (() => {
-    if (typeof window === "undefined") return enableComments;
-
-    const saved = window.localStorage.getItem(
-      "publishing-studio:comments-enabled",
-    );
-    if (saved !== null) {
-      return saved === "true";
-    }
-
-    return enableComments;
-  })();
 
   useEffect(() => {
     async function loadComments() {
@@ -46,7 +34,11 @@ export default function CommentsSection({
         }
 
         const data = await response.json();
-        const nextComments = Array.isArray(data.comments) ? data.comments : [];
+        const nextComments = Array.isArray(data.comments)
+          ? data.comments
+          : Array.isArray(data.approved)
+            ? data.approved
+            : [];
         setNewComments(nextComments);
       } catch {
         setNewComments([]);
@@ -79,7 +71,7 @@ export default function CommentsSection({
     }
   }
 
-  if (!isCommentsEnabled) {
+  if (!enableComments) {
     return null;
   }
 

@@ -254,6 +254,7 @@ export default async function ArticlePage({
       <PublicHeader
         siteName={siteName}
         organizationLogoUrl={profile?.organizationLogoUrl}
+        showSignIn={false}
       />
 
       <div className="w-full px-4 py-8 md:px-6">
